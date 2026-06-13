@@ -1,0 +1,1 @@
+export const STUDY = ["Echo", "CT", "MRI", "Mammogram"] as const;
