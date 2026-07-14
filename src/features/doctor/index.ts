@@ -1,0 +1,10 @@
+export { AppSidebar } from "./components/app-sidebar";
+export { ActivePatientsTable } from "./components/patients/active-patients-table";
+export { HistoricalPatientsTable } from "./components/patients/historical-patients-table";
+export { ReportForm } from "./components/report/report-form";
+export { DoctorPageShell } from "./components/shared/doctor-page-shell";
+export { useDoctorDashboard, useDoctorPerformance } from "./hooks/use-dashboard";
+export { useWatchlist, useAddToWatchlist, useRemoveFromWatchlist } from "./hooks/use-watchlist";
+export { useFollowUps, useCreateFollowUp, useMarkFollowUpDone } from "./hooks/use-followups";
+export { useChatInbox, useConversation, useSendMessage } from "./hooks/use-chat";
+export { DoctorNavGroups } from "./components/shared/doctor-nav-groups";

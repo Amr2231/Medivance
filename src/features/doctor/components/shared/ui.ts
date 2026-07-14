@@ -1,0 +1,11 @@
+export { MetricCard } from "@/features/admin/components/shared/metric-card";
+export { MetricGrid } from "@/features/admin/components/shared/analytics-layout";
+export { AdminTabs as DoctorTabs } from "@/features/admin/components/shared/admin-tabs";
+export { TableToolbar } from "@/features/admin/components/shared/table-toolbar";
+export { AdminTableShell as DoctorTableShell } from "@/features/admin/components/shared/admin-table-shell";
+export { TableCard as DoctorTableCard } from "@/features/admin/components/shared/table-card";
+export { PatientAvatar } from "./patient-avatar";
+export { AdminLoadingState as DoctorLoadingState } from "@/features/admin/components/shared/admin-loading-state";
+export { AdminErrorState as DoctorErrorState } from "@/features/admin/components/shared/admin-error-state";
+export { BarChart, MiniBar } from "@/features/admin/components/shared/bar-chart";
+export { DoctorPageShell } from "../shared/doctor-page-shell";
