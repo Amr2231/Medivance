@@ -1,0 +1,16 @@
+import { CalendarDays, Phone, Stethoscope, UserRound } from "lucide-react";
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet";
+import type { ActivePatient, HistoricalPatient } from "@/lib/types/receptionist";
+import { StatusBadge } from "../status-badge";
+
+type Patient = ActivePatient | HistoricalPatient;
+
+export function ViewPatientModal({ patient, onClose }: { patient: Patient | null; onClose: () => void }) {
+  if (!patient) return null;
+  const initials = `${patient.first_name?.[0] ?? ""}${patient.last_name?.[0] ?? ""}`.toUpperCase();
+  const appointmentDate = patient.study_date ? new Date(patient.study_date).toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" }) : "—";
+
+  return <Sheet open={!!patient} onOpenChange={(open) => !open && onClose()}><SheetContent side="right" className="flex w-full flex-col p-0 sm:max-w-md"><SheetHeader className="border-b px-5 py-5 text-left"><SheetTitle className="sr-only">Patient profile</SheetTitle><SheetDescription className="sr-only">The complete registered profile for {patient.first_name} {patient.last_name}</SheetDescription><div className="flex items-center gap-3"><span className="flex size-12 items-center justify-center rounded-full bg-emerald-100 text-sm font-semibold text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300">{initials || "—"}</span><div className="min-w-0"><p className="truncate font-semibold text-foreground">{patient.first_name} {patient.last_name}</p><p className="truncate font-mono text-xs text-muted-foreground">{patient.national_id}</p></div></div><div className="pt-3"><StatusBadge status={patient.status} /></div></SheetHeader><div className="flex-1 overflow-y-auto"><section className="border-b px-5 py-5"><p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Contact & identity</p><div className="mt-4 grid gap-4"><Info icon={UserRound} label="Gender" value={patient.gender || "—"}/><Info icon={Phone} label="Phone number" value={patient.phone_number || "—"}/></div></section><section className="border-b px-5 py-5"><p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Registered care</p><div className="mt-4 grid gap-4"><Info icon={Stethoscope} label="Assigned doctor" value={patient.doctor_name || "Not assigned"}/><Info icon={CalendarDays} label="Image & appointment" value={`${patient.study_type || "—"} · ${appointmentDate}`}/></div></section><section className="px-5 py-5"><p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Record status</p><div className="mt-3 rounded-xl bg-muted/60 p-4"><p className="text-sm font-medium">{patient.status}</p><p className="mt-1 text-xs text-muted-foreground">This drawer shows all information captured during patient registration.</p></div></section></div></SheetContent></Sheet>;
+}
+
+function Info({ icon: Icon, label, value }: { icon: typeof UserRound; label: string; value: string }) { return <div className="flex items-start gap-3"><span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-lg bg-muted"><Icon className="size-4 text-muted-foreground" /></span><div><p className="text-xs text-muted-foreground">{label}</p><p className="mt-0.5 text-sm font-medium">{value}</p></div></div>; }
