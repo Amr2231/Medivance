@@ -69,10 +69,10 @@ export default function CookiePolicyPage() {
             preference storage.
           </p>
           <p>
-            Medivance does not use cookies to track users across websites,
-            build behavioral profiles, or deliver targeted advertising. No
-            cookie data from Medivance is shared with third-party advertisers,
-            data brokers, or social media platforms.
+            Medivance does not use cookies to track users across websites, build
+            behavioral profiles, or deliver targeted advertising. No cookie data
+            from Medivance is shared with third-party advertisers, data brokers,
+            or social media platforms.
           </p>
         </LegalSection>
 
@@ -95,9 +95,9 @@ export default function CookiePolicyPage() {
           </p>
           <p>
             <strong className="text-foreground">First-party cookies</strong> are
-            set directly by Medivance's domain. Medivance uses only
-            first-party cookies. No third-party cookies are set or read by the
-            platform in normal operation.
+            set directly by Medivance's domain. Medivance uses only first-party
+            cookies. No third-party cookies are set or read by the platform in
+            normal operation.
           </p>
         </LegalSection>
 
@@ -332,7 +332,7 @@ export default function CookiePolicyPage() {
                 href="mailto:amr540290@gmail.com"
                 className="text-emerald-800 dark:text-emerald-400 hover:underline"
               >
-                privacy@evplatform.health
+                amr540290@gmail.com
               </a>
             </p>
           </div>

@@ -116,7 +116,7 @@ export default function LegalIndexPage() {
             href="mailto:amr540290@gmail.com"
             className="text-emerald-800 dark:text-emerald-400 hover:underline"
           >
-            legal@evplatform.health
+            amr540290@gmail.com
           </a>{" "}
           or your institution's designated Privacy Officer.
         </p>

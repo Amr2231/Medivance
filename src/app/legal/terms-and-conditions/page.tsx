@@ -323,7 +323,7 @@ export default function TermsAndConditionsPage() {
                 href="mailto:amr540290@gmail.com"
                 className="text-emerald-800 dark:text-emerald-400 hover:underline"
               >
-                legal@evplatform.health
+                amr540290@gmail.com
               </a>
             </p>
           </div>
