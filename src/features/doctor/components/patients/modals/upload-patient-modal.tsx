@@ -16,8 +16,6 @@ import { Input } from "@/components/ui/input";
 import { FileText, Upload } from "lucide-react";
 import { cn } from "@/lib/utils/tailwind-merge";
 
-const ECHO_DEFAULT_VIEW = "Apical 4 Chamber";
-
 function UploadImageForm({
   patient,
   onClose,
@@ -25,9 +23,7 @@ function UploadImageForm({
   patient: ActivePatient;
   onClose: () => void;
 }) {
-  const isEcho = patient.studies.study_type === "Echo";
-
-  const [viewType, setViewType] = useState(isEcho ? ECHO_DEFAULT_VIEW : "standard");
+  const [viewType, setViewType] = useState("");
   const [files, setFiles] = useState<File[]>([]);
   const [isDragging, setIsDragging] = useState(false);
 
@@ -59,21 +55,11 @@ function UploadImageForm({
       <div className="space-y-4 pt-2">
         <div>
           <p className="text-xs text-gray-400 mb-1">Image Type</p>
-          {isEcho ? (
-            <Input
-              value={ECHO_DEFAULT_VIEW}
-              readOnly
-              disabled
-              className="bg-muted text-muted-foreground cursor-not-allowed"
-            />
-          ) : (
-            <Input
-              value={viewType}
-              disabled
-              onChange={(e) => setViewType(e.target.value)}
-              placeholder="Enter Image Type..."
-            />
-          )}
+          <Input
+            value={viewType}
+            onChange={(e) => setViewType(e.target.value)}
+            placeholder="Enter Image Type..."
+          />
         </div>
 
         <div
