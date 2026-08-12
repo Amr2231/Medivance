@@ -32,6 +32,9 @@ export function useUploadStudyImages(studyId: string) {
     onSuccess: () => {
       toast.success("Images uploaded!");
       queryClient.invalidateQueries({ queryKey: doctorKeys.patients });
+      queryClient.invalidateQueries({
+        queryKey: doctorKeys.patientByStudy(studyId),
+      });
     },
     onError: (error: Error) => toast.error(error.message),
   });
