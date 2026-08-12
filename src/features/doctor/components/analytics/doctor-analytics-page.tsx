@@ -248,7 +248,9 @@ function RateBar({
 }
 
 /** Real diagnosis-mix donut, built from `diagnosis_distribution` counts —
- * no age/severity buckets are shown because the API doesn't provide them. */
+ * no age/severity buckets are shown because the API doesn't provide them.
+ * Not yet wired into the page; kept for the upcoming breakdown panel. */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function DiagnosisDonut({
   entries,
 }: {

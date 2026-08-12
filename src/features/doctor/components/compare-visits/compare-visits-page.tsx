@@ -467,6 +467,8 @@ function DiagnosisRow({
   );
 }
 
+// Not yet wired into the page; kept for the upcoming EF trend panel.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function EfDeltaRow({
   efA,
   efB,

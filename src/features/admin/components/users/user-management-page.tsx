@@ -40,13 +40,15 @@ export function UserManagementPage() {
   // mounted (e.g. clicking the sidebar's "Create User" shortcut while
   // already on Users management — a same-page navigation doesn't remount
   // the component, so the useState initializer above wouldn't rerun).
-  useEffect(() => {
+  // Adjusted during render (React's recommended pattern for syncing state
+  // to a prop change) instead of in an effect, so no setState-in-effect.
+  const [prevRequestedTab, setPrevRequestedTab] = useState(requestedTab);
+  if (requestedTab !== prevRequestedTab) {
+    setPrevRequestedTab(requestedTab);
     if (isTabId(requestedTab) && requestedTab !== activeTab) {
       setActiveTab(requestedTab);
     }
-    // Only re-sync when the URL's tab param itself changes.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [requestedTab]);
+  }
 
   // The sidebar's "Create User" shortcut signals through a CustomEvent
   // (this page is already mounted) and sessionStorage (this page mounts
