@@ -1,17 +1,313 @@
-import { LegalPageHeader, LegalSection } from "@/components/shared/legal-components";
+import {
+  LegalPageHeader,
+  LegalSection,
+  LegalTOC,
+} from "@/components/shared/legal-components";
 
-export const metadata = { title: "Privacy Policy | Medivance" };
+export const metadata = {
+  title: "Privacy Policy | Medivance",
+  description:
+    "Medivance Privacy Policy — how we collect, use, protect, and retain patient health information, imaging data, and user account data.",
+};
+
+const tocItems = [
+  { id: "overview", label: "Overview & Scope" },
+  { id: "definitions", label: "Key Definitions" },
+  { id: "information-we-collect", label: "Information We Collect" },
+  { id: "how-we-use", label: "How We Use Information" },
+  { id: "legal-basis", label: "Legal Basis for Processing" },
+  { id: "sharing", label: "Disclosure of Information" },
+  { id: "security", label: "Data Security" },
+  { id: "retention", label: "Data Retention" },
+  { id: "patient-rights", label: "Patient Rights" },
+  { id: "account-holder-rights", label: "Account Holder Rights" },
+  { id: "children", label: "Children's Information" },
+  { id: "international-transfers", label: "International Data Transfers" },
+  { id: "changes", label: "Changes to This Policy" },
+  { id: "contact", label: "Contact Us" },
+];
 
 export default function PrivacyPolicyPage() {
   return (
     <>
-      <LegalPageHeader badge="Privacy" title="Privacy Policy" subtitle="How Medivance handles patient, study, and account information." effectiveDate="August 12, 2026" lastUpdated="August 12, 2026" />
-      <LegalSection id="data" title="Information We Handle">
-        <p>We process account details, patient records, medical images, reports, and operational records only to provide clinic services.</p>
-      </LegalSection>
-      <LegalSection id="security" title="Security and Retention">
-        <p>Access is restricted to authorized users. Information is protected with access controls and retained according to your institution&apos;s applicable requirements.</p>
-      </LegalSection>
+      <LegalPageHeader
+        badge="Privacy"
+        title="Privacy Policy"
+        subtitle="This Privacy Policy explains how Medivance collects, uses, discloses, secures, and retains patient health information, medical imaging data, and user account information across the platform. Medivance is an institutional clinical platform — access is restricted to authorized healthcare staff acting on behalf of a licensed institution, not the general public."
+        effectiveDate="August 12, 2026"
+        lastUpdated="August 12, 2026"
+      />
+
+      <LegalTOC items={tocItems} />
+
+      <div className="space-y-10">
+        <LegalSection id="overview" title="1. Overview & Scope">
+          <p>
+            Medivance ("Medivance," "the platform," "we," "us," or "our") is a
+            clinical workflow platform used by hospitals, clinics, and
+            diagnostic centers to manage patient records, cardiology and
+            radiology studies, appointments, and related clinical
+            communications. This Policy applies to all data processed through
+            the platform by Administrators, Doctors, and Receptionists
+            (collectively, "Users") acting on behalf of a subscribing
+            institution ("Institution").
+          </p>
+          <p>
+            Medivance does not offer a public-facing consumer product.
+            Patients do not create their own Medivance accounts; patient
+            information is entered and managed by authorized staff of the
+            Institution. Where this Policy refers to "you," it refers to the
+            authorized User accessing the platform, except in the{" "}
+            <a href="#patient-rights" className="text-emerald-800 dark:text-emerald-400 hover:underline">
+              Patient Rights
+            </a>{" "}
+            section, which addresses the patients whose data Users enter and
+            manage.
+          </p>
+          <p>
+            Medivance acts as a data processor on behalf of the Institution
+            for patient health information, and as a data controller for
+            User account and platform-usage information. Institutions remain
+            responsible for their own compliance obligations (such as HIPAA,
+            local health-data regulations, or institutional policy) as the
+            data controller for the patient information they submit to the
+            platform.
+          </p>
+        </LegalSection>
+
+        <LegalSection id="definitions" title="2. Key Definitions">
+          <p>
+            <strong className="text-foreground">Patient Health Information</strong>{" "}
+            means any information relating to an identified or identifiable
+            patient processed through the platform, including demographic
+            details, medical history, cardiology and radiology studies,
+            DICOM images, diagnostic reports, follow-up notes, and visit
+            records.
+          </p>
+          <p>
+            <strong className="text-foreground">Account Data</strong> means
+            information about a User's Medivance account, including name,
+            role, institutional affiliation, login credentials, and session
+            activity.
+          </p>
+          <p>
+            <strong className="text-foreground">Operational Data</strong>{" "}
+            means data generated by the platform's operation, such as audit
+            logs, security events, appointment scheduling records, and
+            system diagnostics.
+          </p>
+        </LegalSection>
+
+        <LegalSection id="information-we-collect" title="3. Information We Collect">
+          <p>
+            <strong className="text-foreground">
+              Patient health information entered by Users, including:
+            </strong>
+          </p>
+          <ul className="list-disc pl-5 space-y-1.5">
+            <li>Patient demographics (name, national ID, date of birth, contact details)</li>
+            <li>Medical and cardiology history, symptoms, and clinical notes</li>
+            <li>Diagnostic imaging studies (including DICOM files) and associated metadata</li>
+            <li>Radiology and cardiology reports, findings, and physician annotations</li>
+            <li>Appointment, scheduling, and follow-up records</li>
+            <li>Watchlist and priority-queue clinical flags set by physicians</li>
+          </ul>
+          <p>
+            <strong className="text-foreground">Account and identity data, including:</strong>
+          </p>
+          <ul className="list-disc pl-5 space-y-1.5">
+            <li>Name, professional role (Admin, Doctor, Receptionist), and institutional affiliation</li>
+            <li>Login credentials and authentication tokens (stored encrypted; passwords are never stored in plain text)</li>
+            <li>Session and device information used to secure your account</li>
+          </ul>
+          <p>
+            <strong className="text-foreground">Operational and security data, including:</strong>
+          </p>
+          <ul className="list-disc pl-5 space-y-1.5">
+            <li>Audit logs recording who accessed or modified a record, and when</li>
+            <li>Login history, IP address, and session metadata for security monitoring</li>
+            <li>System diagnostics and error logs used to maintain platform reliability</li>
+          </ul>
+          <p>
+            Medivance does not knowingly collect information from public
+            visitors, as the platform is not designed for unauthenticated
+            public access.
+          </p>
+        </LegalSection>
+
+        <LegalSection id="how-we-use" title="4. How We Use Information">
+          <p>We use the information described above only to:</p>
+          <ul className="list-disc pl-5 space-y-1.5">
+            <li>Provide, operate, and maintain the clinical and administrative features of the platform</li>
+            <li>Enable authorized Users to view, record, and manage patient studies, reports, and appointments</li>
+            <li>Authenticate Users and enforce role-based access controls</li>
+            <li>Detect, investigate, and prevent unauthorized access, fraud, or security incidents</li>
+            <li>Maintain audit trails required for clinical accountability and regulatory compliance</li>
+            <li>Provide institutional analytics and reporting to Administrators, aggregated at the Institution level</li>
+            <li>Communicate service updates, security notices, and support responses to Users</li>
+          </ul>
+          <p>
+            Medivance does not use patient health information for
+            advertising, does not sell patient or User data, and does not
+            use patient data to train external or third-party AI models
+            without a separate, explicit agreement with the Institution.
+          </p>
+        </LegalSection>
+
+        <LegalSection id="legal-basis" title="5. Legal Basis for Processing">
+          <p>
+            Medivance processes patient health information on the
+            Institution's behalf, under the Institution's instructions and
+            legal basis for processing (typically the provision of
+            healthcare, and applicable legal obligations of the treating
+            Institution). Medivance processes User account data under the
+            legitimate interest of operating and securing the platform, and
+            to perform its service agreement with the Institution.
+          </p>
+        </LegalSection>
+
+        <LegalSection id="sharing" title="6. Disclosure of Information">
+          <p>We do not sell patient or User data. We disclose information only in the following limited circumstances:</p>
+          <ul className="list-disc pl-5 space-y-1.5">
+            <li>
+              <strong className="text-foreground">Within the Institution:</strong>{" "}
+              information is visible to other authorized Users at the same
+              Institution as required by their role (for example, a
+              receptionist scheduling an appointment for a doctor's patient).
+            </li>
+            <li>
+              <strong className="text-foreground">Service providers:</strong>{" "}
+              infrastructure and hosting providers that process data solely
+              to operate the platform, under confidentiality and data
+              protection obligations.
+            </li>
+            <li>
+              <strong className="text-foreground">Legal requirements:</strong>{" "}
+              where disclosure is required to comply with a legal obligation,
+              court order, or lawful request from a competent authority.
+            </li>
+            <li>
+              <strong className="text-foreground">Safety:</strong> where
+              necessary to protect the vital interests of a patient or the
+              public, consistent with applicable law.
+            </li>
+          </ul>
+          <p>
+            Medivance does not share patient or User data with advertisers,
+            data brokers, or unrelated third parties.
+          </p>
+        </LegalSection>
+
+        <LegalSection id="security" title="7. Data Security">
+          <p>
+            Medivance applies role-based access controls, encrypted
+            authentication, audit logging, and session-expiry safeguards to
+            protect information stored on the platform. Detailed technical
+            and organizational security measures are described in our{" "}
+            <a href="/legal/security-policy" className="text-emerald-800 dark:text-emerald-400 hover:underline">
+              Security & Data Protection
+            </a>{" "}
+            policy. No system can guarantee absolute security; Users are
+            required to safeguard their own credentials and report suspected
+            incidents immediately to their Institution's administrator.
+          </p>
+        </LegalSection>
+
+        <LegalSection id="retention" title="8. Data Retention">
+          <p>
+            Patient health information is retained for as long as required
+            by the Institution's applicable medical record-keeping
+            obligations, or as instructed by the Institution. Account and
+            operational data (such as audit logs) are retained for as long as
+            necessary to support security, accountability, and compliance
+            purposes, after which they are deleted or anonymized in
+            accordance with the Institution's data retention schedule.
+          </p>
+          <p>
+            Upon termination of an Institution's agreement with Medivance,
+            data is retained or deleted in accordance with the terms agreed
+            with that Institution and applicable law.
+          </p>
+        </LegalSection>
+
+        <LegalSection id="patient-rights" title="9. Patient Rights">
+          <p>
+            Because patients are not direct Medivance Users, requests to
+            access, correct, or delete patient health information should be
+            directed to the treating Institution, which acts as the data
+            controller for that information. Medivance supports Institutions
+            in fulfilling such requests, including providing tools for
+            authorized staff to review and correct patient records within the
+            platform.
+          </p>
+        </LegalSection>
+
+        <LegalSection id="account-holder-rights" title="10. Account Holder Rights">
+          <p>
+            As a User with a Medivance account, you may request access to,
+            correction of, or information about your own account data by
+            contacting your Institution's administrator or Medivance
+            directly. Certain account information (such as your assigned
+            role) is controlled by your Institution and can only be modified
+            by an Institution Administrator.
+          </p>
+        </LegalSection>
+
+        <LegalSection id="children" title="11. Children's Information">
+          <p>
+            Medivance is not directed at children and Users must be adults
+            authorized to act in a professional healthcare capacity.
+            Pediatric patient records may be entered into the platform by
+            authorized clinical staff as part of ordinary care; such records
+            are treated with the same security and access controls as all
+            other patient health information.
+          </p>
+        </LegalSection>
+
+        <LegalSection id="international-transfers" title="12. International Data Transfers">
+          <p>
+            Where infrastructure providers process data in a location other
+            than the Institution's home jurisdiction, Medivance requires
+            appropriate contractual and technical safeguards consistent with
+            applicable data protection law. Institutions with specific
+            data-residency requirements should contact us to confirm hosting
+            arrangements before onboarding.
+          </p>
+        </LegalSection>
+
+        <LegalSection id="changes" title="13. Changes to This Policy">
+          <p>
+            We may update this Privacy Policy to reflect changes in our
+            practices, technology, legal requirements, or platform features.
+            Material changes will be reflected by an updated "Last Updated"
+            date at the top of this page, and Institution administrators will
+            be notified in advance of significant changes affecting patient
+            data handling.
+          </p>
+        </LegalSection>
+
+        <LegalSection id="contact" title="14. Contact Us">
+          <div className="mt-2 p-5 bg-muted/40 rounded-xl border border-border/60 space-y-2">
+            <p className="font-medium text-foreground">
+              Medivance — Privacy & Compliance
+            </p>
+            <p>For questions about this Privacy Policy or to submit a data request:</p>
+            <p>
+              Email:{" "}
+              <a
+                href="mailto:amr540290@gmail.com"
+                className="text-emerald-800 dark:text-emerald-400 hover:underline"
+              >
+                privacy@evplatform.health
+              </a>
+            </p>
+            <p>
+              Patients should contact their treating Institution's Privacy
+              Officer directly for questions about their own records.
+            </p>
+          </div>
+        </LegalSection>
+      </div>
     </>
   );
 }
