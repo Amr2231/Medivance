@@ -2,6 +2,7 @@
 
 import { startTransition, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useQueryClient } from "@tanstack/react-query";
 import { motion, AnimatePresence } from "motion/react";
 import {
   ArrowLeft,
@@ -27,6 +28,7 @@ import {
   useExportReportPDF,
 } from "../../hooks/use-report";
 import { usePatientByStudyId } from "../../hooks/use-active-patients";
+import { doctorKeys } from "../../constants/query-keys";
 import { StudyImageViewer } from "../images/study-image-viewer";
 import { reportSchema } from "../../validation/schemas";
 import { resolvePatientReportStatus } from "../../utils/report-status";
@@ -262,6 +264,7 @@ function SectionCard({
 
 export function ReportForm({ patientId }: { patientId: string }) {
   const router = useRouter();
+  const queryClient = useQueryClient();
   const studyId = patientId;
 
   const {
@@ -477,6 +480,11 @@ export function ReportForm({ patientId }: { patientId: string }) {
                       fileFormat={img.file_format}
                       viewType={img.view_type}
                       filePath={img.file_path}
+                      onDeleted={() =>
+                        queryClient.invalidateQueries({
+                          queryKey: doctorKeys.patientByStudy(studyId),
+                        })
+                      }
                     />
                   ))}
                 </div>
